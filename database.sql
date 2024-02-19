@@ -1,0 +1,27 @@
+CREATE TABLE Orders (
+    OrderID INT AUTO_INCREMENT PRIMARY KEY,
+    OrderName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE OrderDetails (
+    DetailID INT AUTO_INCREMENT PRIMARY KEY,
+    OrderID INT,
+    ProductName VARCHAR(255) NOT NULL,
+    Quantity INT NOT NULL,
+    ImageURL VARCHAR(255),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
+
+CREATE TABLE Templates (
+    TemplateID INT AUTO_INCREMENT PRIMARY KEY,
+    TemplateName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE TemplateDetails (
+    DetailID INT AUTO_INCREMENT PRIMARY KEY,
+    TemplateID INT,
+    ProductName VARCHAR(255) NOT NULL,
+    Quantity INT NOT NULL,
+    ImageURL VARCHAR(255),
+    FOREIGN KEY (TemplateID) REFERENCES Templates(TemplateID)
+);
